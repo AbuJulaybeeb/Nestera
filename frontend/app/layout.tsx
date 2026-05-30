@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "./context/ThemeContext";
 import { WalletProvider } from "./context/WalletContext";
 import { ToastProvider } from "./context/ToastContext";
+import QueryProvider from "./providers/QueryProvider";
 
 const BASE_URL = "https://nestera.app";
 
@@ -53,13 +54,15 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
-        <ThemeProvider>
-          <WalletProvider>
-            <ToastProvider>
-              <main id="main-content">{children}</main>
-            </ToastProvider>
-          </WalletProvider>
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider>
+            <WalletProvider>
+              <ToastProvider>
+                <main id="main-content">{children}</main>
+              </ToastProvider>
+            </WalletProvider>
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );
