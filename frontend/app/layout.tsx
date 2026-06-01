@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { WalletProvider } from "./context/WalletContext";
 import { ToastProvider } from "./context/ToastContext";
 import QueryProvider from "./providers/QueryProvider";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const BASE_URL = "https://nestera.app";
 
