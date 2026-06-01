@@ -29,6 +29,11 @@ mod timelock;
 mod users;
 
 mod security;
+mod multisig;
+mod storage_optimization;
+mod gas_optimization;
+#[cfg(test)]
+mod fuzz_tests;
 
 mod rates;
 mod views;
