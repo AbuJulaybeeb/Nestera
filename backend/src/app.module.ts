@@ -7,6 +7,7 @@ import { CorrelationIdInterceptor } from './common/interceptors/correlation-id.i
 import { AuditLogInterceptor } from './common/interceptors/audit-log.interceptor';
 import { RequestLoggingInterceptor } from './common/interceptors/request-logging.interceptor';
 import { GracefulShutdownInterceptor } from './common/interceptors/graceful-shutdown.interceptor';
+import { MetricsInterceptor } from './common/interceptors/metrics.interceptor';
 import { TieredThrottlerGuard } from './common/guards/tiered-throttler.guard';
 import { CommonModule } from './common/common.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
@@ -249,6 +250,10 @@ const envValidationSchema = Joi.object({
     {
       provide: APP_INTERCEPTOR,
       useClass: AuditLogInterceptor,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: MetricsInterceptor,
     },
     {
       provide: APP_INTERCEPTOR,
